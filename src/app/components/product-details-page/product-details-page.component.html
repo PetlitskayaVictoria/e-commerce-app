@@ -1,0 +1,63 @@
+<div
+  class="productDetails"
+  fxLayout="row"
+  fxLayoutAlign="space-between "
+  fxFlex="1 1"
+>
+  <div class="carousel-container">
+    <app-product-images-carousel
+      [images]="images"
+      [currentImage]="images[0]"
+      [isMainPage]="true"
+    ></app-product-images-carousel>
+  </div>
+
+  <div class="detailsContainer" fxLayout fxLayoutAlign=" center">
+    <div>
+      <h4>{{ productDetails.companyName | uppercase }}</h4>
+      <h1>{{ productDetails.name | titlecase }}</h1>
+      <p class="description">{{ productDetails.description }}</p>
+      <div fxLayout="row" fxLayoutGap="10px">
+        <div class="price-with-discount">
+          {{ priceWithDiscount | currency: productDetails.currency }}
+        </div>
+        <div
+          class="discount"
+          fxLayout
+          fxLayoutAlign=" center"
+          *ngIf="productDetails.discount"
+        >
+          {{ productDetails.discount + "%" }}
+        </div>
+      </div>
+      <div class="full-price" *ngIf="productDetails.discount">
+        {{ productDetails.price | currency: productDetails.currency }}
+      </div>
+      <div class="buttons" fxLayout="row" fxLayoutGap="10px">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="items">
+          <div fxLayout fxLayoutAlign=" center" (click)="decItemsNumber()">
+            -
+          </div>
+          <input
+            type="number"
+            class="itemsNumber"
+            [value]="itemsNumber"
+            (change)="setItemsNumber($event.target.value)"
+          />
+          <div fxLayout (click)="incItemsNumber()">+</div>
+        </div>
+        <button
+          type="button"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          fxLayoutGap="10px"
+          class="primary-btn addToCartBtn"
+          (click)="onAddToCart()"
+        >
+          <mat-icon svgIcon="cart"></mat-icon>
+          <div>Add to cart</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.primary-btn {
+  background-color: hsl(26, 100%, 55%);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  height: 40px;
+}

@@ -1,0 +1,62 @@
+<div class="cart-icon">
+  <mat-icon
+    svgIcon="cart"
+    fxFlex
+    (click)="toggleCartPreview($event)"
+  ></mat-icon>
+  <div
+    *ngIf="itemsAmount"
+    class="products-number"
+    fxFlex
+    fxLayoutAlign="center center"
+  >
+    {{ itemsAmount }}
+  </div>
+</div>
+
+<div class="cartPreview" *ngIf="showCartPreview" (click)="onCartClick($event)">
+  <div class="cartTitle" fxLayout="row" fxLayoutAlign=" center">
+    <span>Cart</span>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    class="emptyCart"
+    *ngIf="!productsAmount"
+  >
+    <span>Your cart is empty.</span>
+  </div>
+  <div *ngIf="productsAmount">
+    <div class="items" fxLayout="column" fxLayoutGap="20px">
+      <div fxLayout="column" fxLayoutGap="10px">
+        <div
+          *ngFor="let product of products"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <img [src]="product.mainImgThumbnail" alt="img" />
+          <div fxLayout="column" fxLayoutGap="5px">
+            <div class="name">{{ product.name | titlecase }}</div>
+            <div fxLayout="row" fxLayoutGap="7px">
+              <div>
+                {{ priceWithDiscount(product.id) | currency: product.currency }}
+                x
+                {{ product.itemsAmount }}
+              </div>
+              <div class="fullPrice">
+                {{ getFullPrice(product.id) | currency: product.currency }}
+              </div>
+            </div>
+          </div>
+
+          <mat-icon
+            svgIcon="delete"
+            (click)="onRemoveProduct(product.id, product.itemsAmount)"
+          ></mat-icon>
+        </div>
+      </div>
+
+      <button class="primary-btn checkoutBtn" type="button">Checkout</button>
+    </div>
+  </div>
+</div>

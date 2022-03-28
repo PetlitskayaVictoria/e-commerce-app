@@ -1,0 +1,10 @@
+<div class="carousel-container" fxLayout fxLayoutAlign="center center">
+  <div class="content">
+    <mat-icon svgIcon="close" (click)="close()"></mat-icon>
+    <app-product-images-carousel
+      [images]="images"
+      [currentImage]="currentImage"
+      [currentImageIndex]="currentImageIndex"
+    ></app-product-images-carousel>
+  </div>
+</div>

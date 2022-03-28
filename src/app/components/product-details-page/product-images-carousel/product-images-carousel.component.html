@@ -1,0 +1,36 @@
+<div class="imagesContainer" fxLayout="column" fxLayoutAlign="space-between ">
+  <div class="main-image-container">
+    <img
+      [src]="currentImage.imageUrl"
+      alt="main-image"
+      class="mainImg"
+      (click)="onMainImageClick()"
+    />
+    <div class="arrow-container next" (click)="onNext()" *ngIf="!isMainPage">
+      <mat-icon svgIcon="next"></mat-icon>
+    </div>
+    <div class="arrow-container previous" *ngIf="!isMainPage">
+      <mat-icon
+        svgIcon="previous"
+        class="previous"
+        (click)="onPrevious()"
+      ></mat-icon>
+    </div>
+  </div>
+
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-between "
+    class="thumbnailsContainer"
+  >
+    <div *ngFor="let image of images; let i = index" class="thumbnailContainer">
+      <img
+        [src]="image.thumbnailUrl"
+        alt="thumbnail"
+        class="thumbnail"
+        (click)="setMainImage(image.id, index)"
+      />
+      <div [ngClass]="{ overlay: image.id === currentImage.id }"></div>
+    </div>
+  </div>
+</div>
