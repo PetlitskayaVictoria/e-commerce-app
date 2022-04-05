@@ -4,9 +4,18 @@ ul {
   cursor: pointer;
   color: hsl(219, 9%, 45%);
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 li {
   margin-right: 10px;
 }
-li:hover {
+a:hover {
   color: hsl(220, 13%, 13%);
+}
+
+li .active {
+  color: hsl(26, 100%, 55%);
 }

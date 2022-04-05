@@ -1,0 +1,13 @@
+.about-content img {
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  color: hsl(26, 100%, 55%);
+}
+
+p {
+  color: hsl(219, 9%, 45%);
+  line-height: 24px;
+}
