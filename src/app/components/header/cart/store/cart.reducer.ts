@@ -23,9 +23,21 @@ const initState = {
         'assets/images/product-images/image-product-1-thumbnail.jpg',
       itemsAmount: 3,
     },
+    {
+      id: 2,
+      name: 'Product 2',
+      companyName: 'company 2',
+      description: 'Description 2',
+      price: 300,
+      currency: 'USD',
+      discount: 20,
+      mainImgThumbnail:
+        'assets/images/product-images/image-product-3-thumbnail.jpg',
+      itemsAmount: 2,
+    },
   ],
-  productsAmount: 1,
-  totalItemsAmount: 3,
+  productsAmount: 2,
+  totalItemsAmount: 5,
 };
 
 export function cartReducer(
